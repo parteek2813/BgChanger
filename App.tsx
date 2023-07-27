@@ -21,6 +21,7 @@ import {
 
 function App(): JSX.Element {
   const [randomBackground, setRandomBackground] = useState('#FFFFFF');
+  const [shapeBackground, setShapeBackground] = useState('#FFFFFF');
 
   const generateColor = () => {
     const hexRange = '0123456789ABCDEF';
@@ -32,20 +33,45 @@ function App(): JSX.Element {
     setRandomBackground(color);
   };
 
+  const generateColorShapes = () => {
+    const hexRange = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += hexRange[Math.floor(Math.random() * 16)]; // generate number from 1 to 16
+    }
+
+    setShapeBackground(color);
+  };
+
+  const functionCombined = () => {
+    generateColor();
+    generateColorShapes();
+  };
+
   const Square = () => {
-    return <View style={styles.square}></View>;
+    return (
+      <View style={[styles.square, {backgroundColor: shapeBackground}]}></View>
+    );
   };
 
   const Circle = () => {
-    return <View style={styles.circle}></View>;
+    return (
+      <View style={[styles.circle, {backgroundColor: shapeBackground}]}></View>
+    );
   };
 
   const Triangle = () => {
-    return <View style={styles.triangle}></View>;
+    return (
+      <View
+        style={[styles.triangle, {borderBottomColor: shapeBackground}]}></View>
+    );
   };
 
   const Rectangle = () => {
-    return <View style={styles.rectangle}></View>;
+    return (
+      <View
+        style={[styles.rectangle, {backgroundColor: shapeBackground}]}></View>
+    );
   };
   return (
     <>
@@ -56,7 +82,7 @@ function App(): JSX.Element {
           <Square />
           <Circle />
         </View>
-        <TouchableOpacity onPress={generateColor}>
+        <TouchableOpacity onPress={functionCombined}>
           <View style={styles.actionBtn}>
             <Text style={styles.actionBtnTxt}>Press me</Text>
           </View>
@@ -96,13 +122,11 @@ const styles = StyleSheet.create({
   square: {
     width: 100,
     height: 100,
-    backgroundColor: 'red',
   },
   circle: {
     width: 100,
     height: 100,
     borderRadius: 100 / 2,
-    backgroundColor: 'red',
     marginTop: 10,
   },
   triangle: {
@@ -123,7 +147,6 @@ const styles = StyleSheet.create({
   rectangle: {
     width: 100 * 2,
     height: 100,
-    backgroundColor: 'red',
     marginTop: 10,
   },
 });
