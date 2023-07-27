@@ -1,57 +1,75 @@
-import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {
+  Button,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, {useState} from 'react';
 import Exstyles from './style';
 export default function App1() {
-  const [name, setName] = useState('Hello');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [display, setDisplay] = useState(false);
+  const [isSecureTextEntry, setIsSecureTextEntry] = useState(true);
 
-  function TestName() {
-    setName('Parteek');
-  }
-
-  const animal = {
-    eats: 'yes',
-    drink: 'no',
+  const resetFormData = () => {
+    setName('');
+    setEmail('');
+    setPassword('');
+    setDisplay(false);
   };
+
+  const togglePasswordVisible = () => {
+    setIsSecureTextEntry(!isSecureTextEntry);
+  };
+
   return (
     <View>
-      <Text>{name}</Text>
-      <Button title="updateName" onPress={() => TestName()}>
-        Hello
-      </Button>
-      <User animal={animal} />
+      <Text style={{fontSize: 30}}> Simple Form in React Native</Text>
+      <View>
+        <Text>Enter your name</Text>
+        <TextInput placeholder="name" onChangeText={text => setName(text)} />
+      </View>
+      <View>
+        <Text>Enter your password</Text>
+        <TextInput
+          placeholder="password"
+          secureTextEntry={isSecureTextEntry}
+          onChangeText={text => setPassword(text)}
+        />
+        <TouchableOpacity onPress={togglePasswordVisible}>
+          <Text> {isSecureTextEntry ? 'Show' : 'Hide'}</Text>
+        </TouchableOpacity>
+      </View>
+      <View>
+        <Text>Enter your email</Text>
+        <TextInput placeholder="email" onChangeText={text => setEmail(text)} />
+      </View>
+
+      <View style={{marginBottom: 10}}>
+        <Button
+          color={'green'}
+          title="Print Details"
+          onPress={() => setDisplay(true)}
+        />
+      </View>
+      <Button title="clear Details" onPress={resetFormData} />
+
+      <View>
+        {display ? (
+          <View>
+            <Text style={{fontSize: 20}}>User Name is: {name}</Text>
+            <Text style={{fontSize: 20}}>Password is: {password}</Text>
+            <Text style={{fontSize: 20}}>User Email is: {email}</Text>
+          </View>
+        ) : null}
+      </View>
     </View>
   );
 }
 
-const User = (props: {animal: {eats: any; drink: any}}) => {
-  const {eats, drink} = props.animal;
-  const [nameInput, setNameInput] = useState('');
-
-  return (
-    <View>
-      <Text style={{fontSize: 30}}>{eats} </Text>
-      <Text style={{fontSize: 30}}>{drink} </Text>
-      <Text style={(Exstyles.textBox, {marginTop: 20})}>
-        Your name is: {nameInput}
-      </Text>
-      <TextInput
-        style={styles.textInput}
-        onChangeText={text => setNameInput(text)}
-        value={nameInput}
-        placeholder="Enter your name"
-      />
-      <Button title="clear input value" onPress={() => setNameInput('')} />
-    </View>
-  );
-};
-
 // Interview: validation on input box
-const styles = StyleSheet.create({
-  textInput: {
-    fontSize: 20,
-    color: 'red',
-    borderWidth: 2,
-    borderColor: 'blue',
-    margin: 10,
-  },
-});
+const styles = StyleSheet.create({});
