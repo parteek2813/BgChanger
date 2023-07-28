@@ -256,73 +256,132 @@
 //   },
 // });
 
-import {StyleSheet, Text, View, FlatList} from 'react-native';
+// import {StyleSheet, Text, View, FlatList} from 'react-native';
+// import React from 'react';
+
+// const Users = [
+//   {
+//     id: 1,
+//     name: 'John',
+//     email: 'a@b.com',
+//   },
+//   {
+//     id: 2,
+//     name: 'John',
+//     email: 'a@b.com',
+//   },
+//   {
+//     id: 3,
+//     name: 'John',
+//     email: 'a@b.com',
+//   },
+// ];
+
+// const UserData = (props: any) => {
+//   const {item} = props;
+//   return (
+//     <View style={styles.box}>
+//       <Text style={styles.item}>{item.name}</Text>
+//       <Text style={styles.item}>{item.email}</Text>
+//     </View>
+//   );
+// };
+
+// export default function App1() {
+//   return (
+//     <View>
+//       <Text style={{fontSize: 32}}>Component in loop flatlist</Text>
+//       <FlatList
+//         data={Users}
+//         renderItem={({item}) => <UserData item={item} />}
+//       />
+//     </View>
+//   );
+// }
+
+// // Interview question: Can we use custom component in flatList?
+// // Yes, we can use custom component in flatList by making the seprate child component
+// // and then using the js map function, we can make the child component
+// // to be rendered at many items as we want
+
+// // Question 2
+// // Can we pass the multiple props too in the data?
+// // Yes, we can use them by making multiple props .
+// // in the JS, we can directly get the destructring from the object
+// // and in the typescript, we can declare the types of the props before
+// // and then use that props !!
+
+// const styles = StyleSheet.create({
+//   item: {
+//     fontSize: 24,
+//     color: 'orange',
+//     flex: 1,
+//     margin: 2,
+//     textAlign: 'center',
+//   },
+//   box: {
+//     flexDirection: 'row',
+//     borderWidth: 2,
+//     borderColor: 'orange',
+//     marginBottom: 10,
+//   },
+// });
+
+import {SectionList, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-const Users = [
-  {
-    id: 1,
-    name: 'John',
-    email: 'a@b.com',
-  },
-  {
-    id: 2,
-    name: 'John',
-    email: 'a@b.com',
-  },
-  {
-    id: 3,
-    name: 'John',
-    email: 'a@b.com',
-  },
-];
-
-const UserData = (props: any) => {
-  const {item} = props;
-  return (
-    <View style={styles.box}>
-      <Text style={styles.item}>{item.name}</Text>
-      <Text style={styles.item}>{item.email}</Text>
-    </View>
-  );
-};
-
 export default function App1() {
+  const Users = [
+    {
+      id: 1,
+      name: 'Parteek',
+      data: ['PHP', 'Android', 'iOS'], // if we are using the nested array, then it is must to use data as the object name in that
+    },
+    {
+      id: 2,
+      name: 'peter',
+      data: ['JS', 'CSS'],
+    },
+    {
+      id: 3,
+      name: 'bruce',
+      data: ['JS', 'jsx'],
+    },
+    {
+      id: 4,
+      name: 'Tony',
+      data: ['JS', 'Html'],
+    },
+  ];
+
   return (
     <View>
-      <Text style={{fontSize: 32}}>Component in loop flatlist</Text>
-      <FlatList
-        data={Users}
-        renderItem={({item}) => <UserData item={item} />}
+      <Text>Section List in React Native</Text>
+
+      <SectionList
+        sections={Users}
+        renderItem={({item}) => (
+          <Text style={{fontSize: 20, marginLeft: 20}}>{item}</Text>
+        )}
+        renderSectionHeader={({section: {name}}) => (
+          <Text style={{fontSize: 25, color: 'red'}}>{name}</Text>
+        )}
       />
     </View>
   );
 }
 
-// Interview question: Can we use custom component in flatList?
-// Yes, we can use custom component in flatList by making the seprate child component
-// and then using the js map function, we can make the child component
-// to be rendered at many items as we want
+// Interview Question:
 
-// Question 2
-// Can we pass the multiple props too in the data?
-// Yes, we can use them by making multiple props .
-// in the JS, we can directly get the destructring from the object
-// and in the typescript, we can declare the types of the props before
-// and then use that props !!
+// Question 1:
+// Can we make the nested list with flatList, customList too ?
+// Yes, we can make the nested List too with flatList, customList too
+// but the sectionList bydefault gives us the option of using the
+// nested List but mind you that in the nested List Object , we have to
+// define the Object name as [data] only ..... we can't use any other name here
 
-const styles = StyleSheet.create({
-  item: {
-    fontSize: 24,
-    color: 'orange',
-    flex: 1,
-    margin: 2,
-    textAlign: 'center',
-  },
-  box: {
-    flexDirection: 'row',
-    borderWidth: 2,
-    borderColor: 'orange',
-    marginBottom: 10,
-  },
-});
+// Question 2:
+// Where to use SectionList and FlatList?
+// We can use SectionList in the nestedArray and flatList in the simple Array.
+
+const styles = StyleSheet.create({});
