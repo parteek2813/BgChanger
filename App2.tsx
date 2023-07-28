@@ -29,13 +29,29 @@ class App extends Component {
 
 export default App;
 
+/*
 // Interview Question
 
 // Question 1
-// Should we use functional Component or Class Component?
-// We can use both , but it recommended to use functional Component
-// nowadays as compared to class Component. Let, const , var are not
-// used in class Component
+ Should we use functional Component or Class Component?
 
-// Question 2
-// Diff b/w class component and functional Component?
+We can use both , but it recommended to use functional Component
+ nowadays as compared to class Component. Let, const , var are not
+ used in class Component
+
+ // Question 2
+ Diff b/w class component and functional Component?
+
+ // Question 3
+ How can we return in class Component?
+
+ we can retunr in class Component using the render fn provided by the react native
+ as we are not allowed to render in class component.
+
+ Syntax: render() {
+  return (
+    <View> </View>
+  )
+ }
+
+*/
