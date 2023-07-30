@@ -10,18 +10,35 @@ import {
 } from 'react-native';
 import Student from './Components/Student';
 
-class App extends Component {
-  fruit = () => {
-    console.log('Apple');
-  };
+interface AppState {
+  name: string;
+  age: number;
+}
+
+class App extends Component<{}, AppState> {
+  constructor(props: {}) {
+    super(props); // to call the parent class constructor.... i.e Component in this case
+
+    this.state = {
+      name: 'Parteek',
+      age: 10,
+    };
+  }
+
+  updateName(val: string) {
+    this.setState({name: val});
+  }
 
   render() {
     return (
       <View>
-        <Text style={{fontSize: 30, color: 'red'}}>Class Component</Text>
-        <TextInput placeholder="Enter your name" />
-        <Button title="Press me" onPress={this.fruit} />
-        <Student />
+        <Text style={{fontSize: 30, color: 'red'}}>{this.state.name}</Text>
+        <TextInput
+          placeholder="Enter your name"
+          onChangeText={text => this.updateName(text)}
+        />
+        <Button title="Press me" />
+        <Student name={this.state.name} />
       </View>
     );
   }

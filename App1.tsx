@@ -10,29 +10,29 @@
 // import React, {useState} from 'react';
 // import Exstyles from './style';
 
-// type ItemData = {id: string; title: string};
-// type ItemProps = {
-//   item: ItemData;
-//   onPress: () => void;
-//   backgroundColor: string;
-//   textColor: string;
-// };
+type ItemData = {id: string; title: string};
+type ItemProps = {
+  item: ItemData;
+  onPress: () => void;
+  backgroundColor: string;
+  textColor: string;
+};
 
 // // DATA
-// const DATA: ItemData[] = [
-//   {
-//     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-//     title: 'First Item',
-//   },
-//   {
-//     id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-//     title: 'Second Item',
-//   },
-//   {
-//     id: '58694a0f-3da1-471f-bd96-145571e29d72',
-//     title: 'Third Item',
-//   },
-// ];
+const DATA: ItemData[] = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'First Item',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'Second Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+  },
+];
 
 // // making a child component and taking the props
 // const Item = ({item, onPress, backgroundColor, textColor}: ItemProps) => (
@@ -335,7 +335,7 @@ export default function App1() {
     {
       id: 1,
       name: 'Parteek',
-      data: ['PHP', 'Android', 'iOS'], // if we are using the nested array, then it is must to use data as the object name in that
+      data: ['PHP', 'Androi d', 'iOS'], // if we are using the nested array, then it is must to use data as the object name in that
     },
     {
       id: 2,
