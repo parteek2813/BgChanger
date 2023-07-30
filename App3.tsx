@@ -59,6 +59,15 @@ interface TeacherProps {
   toggle: boolean;
 }
 const Teacher: React.FC<TeacherProps> = props => {
+  // VERY IMPORTANT
+  useEffect(() => {
+    let timer = setInterval(() => {
+      console.log('Timer called');
+    }, 2000);
+    return () => {
+      clearInterval(timer); // clear the setTimeout when the unmount happens
+    };
+  }, []);
   const {toggle} = props;
 
   return (
