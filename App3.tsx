@@ -101,45 +101,98 @@
 //  *
 //  */
 
-import {StyleSheet, Text, View} from 'react-native';
+// FLEX BOX
+// import {StyleSheet, Text, View} from 'react-native';
+// import React from 'react';
+
+// export default function App3() {
+//   return (
+//     <View style={styles.main}>
+//       <Text style={styles.box1}></Text>
+//       <Text style={styles.box2}></Text>
+//       <Text style={styles.box3}></Text>
+//       <Text style={styles.box4}></Text>
+//       <Text style={styles.box5}></Text>
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   main: {
+//     flex: 1,
+//     backgroundColor: 'orange',
+//     flexDirection: 'row',
+//   },
+//   box1: {
+//     flex: 2,
+//     backgroundColor: 'red ',
+//   },
+//   box2: {
+//     flex: 1,
+//     backgroundColor: 'green',
+//   },
+//   box3: {
+//     flex: 1,
+//     backgroundColor: 'black',
+//   },
+//   box4: {
+//     flex: 1,
+//     backgroundColor: 'white',
+//   },
+//   box5: {
+//     flex: 1,
+//     backgroundColor: 'green',
+//   },
+// });
+
+// STYLE BUTTON
+
+import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 import React from 'react';
 
 export default function App3() {
   return (
     <View style={styles.main}>
-      <Text style={styles.box1}></Text>
-      <Text style={styles.box2}></Text>
-      <Text style={styles.box3}></Text>
-      <Text style={styles.box4}></Text>
-      <Text style={styles.box5}></Text>
+      <TouchableHighlight>
+        <Text style={[styles.button, styles.true]}>True</Text>
+      </TouchableHighlight>
+      <TouchableHighlight>
+        <Text style={[styles.button, styles.false]}>False</Text>
+      </TouchableHighlight>
+      <TouchableHighlight>
+        <Text style={[styles.button, styles.true1]}>False</Text>
+      </TouchableHighlight>
+      <TouchableHighlight>
+        <Text style={[styles.button, styles.false1]}>False</Text>
+      </TouchableHighlight>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  main: {
-    flex: 1,
-    backgroundColor: 'orange',
-    flexDirection: 'row',
+  main: {flex: 1},
+  button: {
+    backgroundColor: '#bbb',
+    color: '#fff',
+    fontSize: 24,
+    textAlign: 'center',
+    padding: 10,
+    margin: 10,
+    shadowColor: 'red',
+    elevation: 10,
+    shadowOpacity: 1,
   },
-  box1: {
-    flex: 2,
-    backgroundColor: 'red ',
-  },
-  box2: {
-    flex: 1,
-    backgroundColor: 'green',
-  },
-  box3: {
-    flex: 1,
-    backgroundColor: 'black',
-  },
-  box4: {
-    flex: 1,
-    backgroundColor: 'white',
-  },
-  box5: {
-    flex: 1,
-    backgroundColor: 'green',
-  },
+  true: {backgroundColor: 'green'},
+  false: {backgroundColor: 'red'},
+  true1: {backgroundColor: 'gray'},
+  false1: {backgroundColor: 'black'},
 });
+
+/**
+ * Interview QUestions:
+ *
+ * Question 1: What is alternative to style button in react native to use the styling too?
+ * Ans. Touchable Highlight and Touchable Opacity are the two alternative to this.
+ *
+ *
+ */
