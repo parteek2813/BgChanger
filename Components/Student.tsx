@@ -17,3 +17,15 @@ class Student extends Component<StudentProps> {
 }
 
 export default Student;
+
+/**
+ * Interview Questions:
+ *
+ * Question 1: How we can make state in the class component?
+ * Question 2: How we can update the value of the state?
+ * Question 3: How we can use props in the class component and in its child component too? [this.props]
+ * Question 4: How we can make functions in the class component?
+ * Question 5: Use of super() keyword and constuctor declartion in class component?
+ *
+ *
+ *  */

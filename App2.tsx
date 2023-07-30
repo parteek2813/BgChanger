@@ -71,4 +71,21 @@ We can use both , but it recommended to use functional Component
   )
  }
 
+ // LIFe cycle Methods- 22 lec
+
+ Question 1: Can we use life cycle methods in the functional component?
+ Ans: We can use life cycle methods in the functional component through hooks
+
+ Question 2: Phases of life cycle methods?
+ Ans: 1) Mounting
+ 2) Updating
+ 3) Unmounting
+
+
+ // Hooks - 23 lec
+ Question 1: can we use Hooks in class components too?
+ Ans: No, hooks are a feature introduced in React 16.8 that allows you to use state and other 
+ React features in functional components. Hooks are not compatible with class components.
+
+ 
 */
